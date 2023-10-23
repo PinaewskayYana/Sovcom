@@ -22,7 +22,7 @@ env/Scripts/activate
 ```sh
 pip install -r requirements.txt
 ```
-- загрузите дамп бд через pg_restore (имя базы ="SovDB", имя пользователя: postgres, пароль: password, host="127.0.0.1", port="5432")
+- загрузите дамп бд через pg_restore файл dbbot.sql (имя базы ="SovDB", имя пользователя: postgres, пароль: password, host="127.0.0.1", port="5432")
 - запустите бота
 
 ```sh
