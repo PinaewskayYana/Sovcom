@@ -42,6 +42,18 @@
     <Compile Include="bot.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="handlers\command_client.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handlers\create_applicat.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handlers\client.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="workwithDB\adminworkDBpy.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="workwithDB\connectDB.py">
       <SubType>Code</SubType>
     </Compile>

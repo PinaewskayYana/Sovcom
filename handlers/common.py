@@ -2,8 +2,8 @@
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message, ReplyKeyboardRemove, ReplyKeyboardMarkup
-from texts import WELCOME_MES, SPRAVKA, PHOTO, ANDROID, IPHONE
-from keyboards.auto import kb_autor, builder, phone
+from texts import WELCOME_MES, SPRAVKA, PHOTO, ANDROID, IPHONE, ADMIN
+from keyboards.auto import kb_autor, builder, phone, menu_admin
 
 router = Router()
 
@@ -32,7 +32,13 @@ async def cmd_help(message: Message):
 
 @router.message(Command(commands=["menu"]))
 async def cmd_menu(message: Message):
-    await message.answer(text = 'Ваше меню',reply_markup=builder.as_markup(resize_keyboard=True))
+    kb=builder
+    await message.answer(text = 'Ваше меню',reply_markup=kb.as_markup(resize_keyboard=True))
+ 
+@router.message(Command(commands=["Menu"]))
+async def cmd_menu(message: Message):
+    kb=menu_admin
+    await message.answer(text = 'Ваше меню',reply_markup=kb.as_markup(resize_keyboard=True))
     
 @router.message(Command(commands=["photo"]))
 async def cmd_photo(message: Message):

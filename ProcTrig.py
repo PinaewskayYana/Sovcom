@@ -1,3 +1,6 @@
+from workwithDB.connectDB import user, con
+import psycopg2
+
 CREATE OR REPLACE FUNCTION update_application_mincount()
 RETURNS TRIGGER AS $$
 DECLARE

@@ -1,9 +1,10 @@
-
+﻿
 import asyncio
 import logging
 from aiogram import Bot, Dispatcher, F
 from config import config
-from handlers import registrat, entry, common, workphoto, admin
+from handlers import registrat, entry, common, admin, create_applicat, client
+from handlers import command_client
 
 logging.basicConfig(level=logging.INFO)
 async def main():
@@ -12,8 +13,10 @@ async def main():
     dp.include_router(registrat.router)
     dp.include_router(entry.router)
     dp.include_router(common.router)
-    dp.include_router(workphoto.router)
     dp.include_router(admin.router)
+    dp.include_router(client.router)
+    dp.include_router(create_applicat.router) 
+    dp.include_router(command_client.router)
 
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)

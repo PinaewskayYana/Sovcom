@@ -33,14 +33,11 @@ def check_photo_properties(file_path):
     if not tags:
         print( "Отсутствуют метаданные")
     
-     #Проверяем размытие/шумы
-    sharpness = tags.get('Image Tag 0xA20E')
-    if sharpness is None or sharpness.values[0] < 100:
-        print( "Фото размыто или содержит шумы")
+     
     
      #Проверяем количество света на фото
     exposure_program = tags.get('EXIF ExposureProgram')
-    if exposure_program is None or exposure_program.values[0] != 0:
+    if exposure_program is None or exposure_program.values[0] >= 2.5:
         print( "Фото сделано без достаточного количества света")
     
      #Проверяем, была ли фотография отредактирована
@@ -59,7 +56,7 @@ def check_photo_properties(file_path):
     return f"Геолокация: широта {latitude}, долгота {longitude}"
 
 # Пример использования функции
-photo_path = "photoes/BQACAgIAAxkBAAIBOmUyRD0-YCVDWcmRqavjM9pNPA8GAAIvOAACZLGQSZsUvJZNS8GuMAQ.jpg"
+photo_path = "k.jpg"
 result = check_photo_properties(photo_path)
 print(result)
 # Получение текущей даты и времени
