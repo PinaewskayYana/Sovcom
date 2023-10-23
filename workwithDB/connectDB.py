@@ -72,3 +72,4 @@ req_text = ''
 id_req = 0
 flag_plan = 0
 id_client = 0
+tg = ''

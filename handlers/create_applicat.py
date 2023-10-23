@@ -428,7 +428,7 @@ async def download_photo(message:Message, bot: Bot, state: FSMContext):
             flag_plan = 0
         await message.answer(text=tt)
     else:
-        await message.answer(text=tt)
+        await message.answer(text='Файл прикреплен не в виде документа')
         
 
 @router.message(InputPhot.textH)

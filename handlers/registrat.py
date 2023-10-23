@@ -43,6 +43,7 @@ async def cmd_regis(message: Message, state: FSMContext):
             reply_markup=ReplyKeyboardRemove()
         )
         user['idNum'] = message.from_user.id
+        user['tgname'] = message.from_user.first_name
         await state.set_state(InputInfom.input_surname)
 
 @router.message(InputInfom.input_surname)
@@ -127,8 +128,8 @@ async def inputdatee(message: Message, state: FSMContext):
         )
         cur = conn.cursor()
         cur.execute(
-        f"""INSERT INTO users (idnum,role,login,name,pass,email,phone) 
-            VALUES ({user['idNum']}, 'client', '{user['login']}', '{user['Name']}', '{user['Pass']}', '{user['email']}', '{user['phone']}')"""
+        f"""INSERT INTO users (idnum,role,login,name,pass,email,phone, tgname) 
+            VALUES ({user['idNum']}, 'client', '{user['login']}', '{user['Name']}', '{user['Pass']}', '{user['email']}', '{user['phone']}', '{user['tgname']}')"""
         )
         conn.commit()   
         conn.close()
